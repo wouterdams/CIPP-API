@@ -98,7 +98,7 @@ function Invoke-ListTenants {
             if ($Request.Query.Mode -eq 'TenantList') {
                 # add portal link properties
                 $Body = $Body | Select-Object *, @{Name = 'portal_m365'; Expression = { "https://admin.cloud.microsoft/?delegatedOrg=$($_.initialDomainName)" } },
-                @{Name = 'portal_exchange'; Expression = { "https://admin.cloud.microsoft/exchange?delegatedOrg=$($_.initialDomainName)" } },
+                @{Name = 'portal_exchange'; Expression = { "https://admin.exchange.microsoft.com/?landingpage=homepage&form=mac_sidebar&delegatedOrg=$($_.initialDomainName)" } },
                 @{Name = 'portal_entra'; Expression = { "https://entra.microsoft.com/$($_.defaultDomainName)" } },
                 @{Name = 'portal_teams'; Expression = { "https://admin.teams.microsoft.com?delegatedOrg=$($_.initialDomainName)" } },
                 @{Name = 'portal_azure'; Expression = { "https://portal.azure.com/$($_.defaultDomainName)" } },
